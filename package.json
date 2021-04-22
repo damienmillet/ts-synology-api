@@ -9,10 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "realdebrid",
-    "realdebrid api",
-    "realdebrid api ts",
-    "realdebrid api typescript"
+    "synology",
+    "synology api",
+    "synology api ts",
+    "synology api typescript"
   ],
   "repository": {
     "type": "git",
