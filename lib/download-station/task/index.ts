@@ -23,7 +23,7 @@ import {
   list,
   pause,
   resume,
-  tasks,
+  task,
 } from "./type.return";
 
 const path = "/webapi/DownloadStation/task.cgi";
@@ -41,7 +41,7 @@ const Task = Api && {
       headers: Api.headers,
     })
       .then((res) => res.json())
-      .then((res: tasks) => res),
+      .then((res: task) => res),
 
   create: (params?: createParams) =>
     fetch(Api.queryUrl(path, { ...createDefault, ...params }), {

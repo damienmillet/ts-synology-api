@@ -46,7 +46,7 @@ export type transfer = {
   speed_upload?: number;
 };
 
-export type task = {
+export type taskData = {
   additional?: {
     detail?: detail;
     transfer?: transfer;
@@ -66,11 +66,9 @@ export type task = {
   username: string;
 };
 
-export type tasksData = { tasks: task[] };
-
 export type listData = {
   offset: number;
-  tasks: tasks;
+  tasks: taskData[];
   total: number;
 };
 
@@ -80,7 +78,7 @@ export type id = {
 };
 
 export type list = response<listData>;
-export type tasks = response<tasksData>;
+export type task = response<taskData>;
 export type create = response<undefined>;
 export type deleteTask = response<[id[]]>;
 export type pause = response<[id[]]>;
