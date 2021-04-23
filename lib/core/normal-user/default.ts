@@ -1,8 +1,12 @@
 import { userParams } from "./type.params";
 
-export const userDefault: userParams = {
+const baseDefault = {
   api: "SYNO.Core.NormalUser",
   version: 1,
-  method: "get",
   _sid: undefined,
+};
+
+export const userDefault: userParams = {
+  ...baseDefault,
+  ...{ method: "get" },
 };
