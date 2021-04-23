@@ -1,2 +1,4 @@
-export type login = { data: { sid: string }; success: boolean };
-export type logout = {};
+import { response } from "../../api";
+
+export type login = response<{ sid: string }>;
+export type logout = response<{}>;

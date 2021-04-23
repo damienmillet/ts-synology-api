@@ -2,9 +2,9 @@ export type loginParams = {
   api?: string;
   version?: number;
   method?: string;
-  account?: string | undefined;
-  passwd?: string | undefined;
-  session?: string | string[] | undefined;
+  account?: string;
+  passwd?: string;
+  session?: string | string[];
   format?: string;
 };
 
@@ -13,5 +13,5 @@ export type logoutParams = {
   version?: number;
   method?: string;
   session?: string;
-  _sid?: string | string[] | undefined;
+  _sid: string | string[] | undefined;
 };
