@@ -1,21 +1,83 @@
 import Api from "../../api";
-import { taskDefault } from "./default";
-import { getListParams } from "./type.params";
-import { getList } from "./type.return";
+import {
+  createDefault,
+  deleteDefault,
+  infoDefault,
+  listDefault,
+  pauseDefault,
+  resumeDefault,
+} from "./default";
+import {
+  createParams,
+  deleteParams,
+  editParams,
+  infoParams,
+  listParams,
+  pauseParams,
+  resumeParams,
+} from "./type.params";
+import {
+  create,
+  deleteTask,
+  edit,
+  list,
+  pause,
+  resume,
+  tasks,
+} from "./type.return";
 
 const path = "/webapi/DownloadStation/task.cgi";
 
 const Task = Api && {
-  getList: (params?: getListParams) =>
-    fetch(Api.queryUrl(path, { ...taskDefault, ...params }), {
+  list: (params?: listParams) =>
+    fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
-      .then((res: getList) => res),
+      .then((res: list) => res),
 
-  getInfo: () => {},
+  info: (params?: infoParams) =>
+    fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: tasks) => res),
 
-  create: () => {},
+  create: (params?: createParams) =>
+    fetch(Api.queryUrl(path, { ...createDefault, ...params }), {
+      method: "POST",
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: create) => res),
+
+  delete: (params?: deleteParams) =>
+    fetch(Api.queryUrl(path, { ...deleteDefault, ...params }), {
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: deleteTask) => res),
+
+  pause: (params?: pauseParams) =>
+    fetch(Api.queryUrl(path, { ...pauseDefault, ...params }), {
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: pause) => res),
+
+  resume: (params?: resumeParams) =>
+    fetch(Api.queryUrl(path, { ...resumeDefault, ...params }), {
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: resume) => res),
+
+  edit: (params?: editParams) =>
+    fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
+      headers: Api.headers,
+    })
+      .then((res) => res.json())
+      .then((res: edit) => res),
 };
 
 export default Task;
