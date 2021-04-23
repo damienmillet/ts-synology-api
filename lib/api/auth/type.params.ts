@@ -1,17 +1,15 @@
-export type loginParams = {
+type base = {
   api?: string;
   version?: number;
   method?: string;
+  session?: string | string[];
+  _sid: string | string[] | undefined;
+};
+
+export type loginParams = base & {
   account?: string;
   passwd?: string;
-  session?: string | string[];
   format?: string;
 };
 
-export type logoutParams = {
-  api?: string;
-  version?: number;
-  method?: string;
-  session?: string;
-  _sid: string | string[] | undefined;
-};
+export type logoutParams = base;
