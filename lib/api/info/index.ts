@@ -1,17 +1,17 @@
 import Api from "../../api";
-import { infoDefault } from "./default";
-import { infoParams } from "./type.params";
-import { infos } from "./type.return";
+import { queryDefault } from "./default";
+import { queryParams } from "./type.params";
+import { query } from "./type.return";
 
 const path = "/webapi/query.cgi";
 
 const Info = Api && {
-  get: (params?: infoParams) =>
-    fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
+  query: (params?: queryParams) =>
+    fetch(Api.queryUrl(path, { ...queryDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
-      .then((res: infos) => res),
+      .then((res: query) => res),
 };
 
 export default Info;

@@ -1,8 +1,12 @@
-import { infoParams } from "./type.params";
+import { queryParams } from "./type.params";
 
-export const infoDefault: infoParams = {
+const baseDefault = {
   api: "SYNO.API.Info",
   version: 1,
-  method: "query",
-  query: "all",
+  _sid: undefined,
+};
+
+export const queryDefault: queryParams = {
+  ...baseDefault,
+  ...{ method: "query", query: "all" },
 };
