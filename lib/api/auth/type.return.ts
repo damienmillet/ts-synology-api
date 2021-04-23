@@ -1,4 +1,5 @@
 import { response } from "../../api";
 
-export type login = response<{ sid: string }>;
-export type logout = response<{}>;
+type loginData = { sid: string };
+export type login = response<loginData>;
+export type logout = response<undefined>;

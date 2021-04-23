@@ -1,6 +1,6 @@
 import { response } from "../../api";
 
-export type user = response<{
+type userData = {
   OTP_enable: boolean;
   OTP_enforced: boolean;
   disallowchpasswd: boolean;
@@ -8,4 +8,6 @@ export type user = response<{
   email: string;
   fullname: string;
   username: string;
-}>;
+};
+
+export type user = response<userData>;
