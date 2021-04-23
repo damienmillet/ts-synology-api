@@ -1,12 +1,12 @@
 import { response } from "../../api";
 
-type infoData = {
+export type infoData = {
   is_manager: boolean;
   version: number;
   version_string: string;
 };
 
-type configData = {
+export type configData = {
   bt_max_download?: number;
   bt_max_upload?: number;
   emule_enabled?: boolean;

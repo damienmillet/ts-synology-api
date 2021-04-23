@@ -1,6 +1,6 @@
 import { response } from "../../api";
 
-type userData = {
+export type userData = {
   OTP_enable: boolean;
   OTP_enforced: boolean;
   disallowchpasswd: boolean;
