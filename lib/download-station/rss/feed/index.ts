@@ -5,7 +5,7 @@ import { list } from "./type.return";
 
 const path = "/webapi/DownloadStation/RSSfeed.cgi";
 
-const Site = Api && {
+const Feed = Api && {
   list: (params?: listParams) =>
     fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
       headers: Api.headers,
@@ -14,4 +14,4 @@ const Site = Api && {
       .then((res: list) => res),
 };
 
-export default Site;
+export default Feed;
