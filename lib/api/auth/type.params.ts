@@ -3,7 +3,6 @@ type base = {
   version?: number;
   method?: string;
   session?: string | string[];
-  _sid: string | string[] | undefined;
 };
 
 export type loginParams = base & {
@@ -12,4 +11,6 @@ export type loginParams = base & {
   format?: string;
 };
 
-export type logoutParams = base;
+export type logoutParams = base & {
+  _sid: string | string[] | undefined;
+};

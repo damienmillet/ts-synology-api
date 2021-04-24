@@ -3,7 +3,6 @@ import { loginParams, logoutParams } from "./type.params";
 const baseDefault = {
   api: "SYNO.API.Auth",
   version: 1,
-  _sid: undefined,
 };
 
 export const loginDefault: loginParams = {
@@ -23,5 +22,6 @@ export const logoutDefault: logoutParams = {
   ...{
     method: "logout",
     session: "DownloadStation",
+    _sid: undefined,
   },
 };
