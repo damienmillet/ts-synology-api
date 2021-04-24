@@ -1,6 +1,6 @@
 # ts-synology-api
 
-Api for wrappe Syno API wrote in ts, npm package's transpiled in js
+Api to wrap Syno API wrote in ts, npm package's transpiled in js
 
 - [x] api
   - [x] auth
