@@ -5,6 +5,7 @@ export type response<T> = {
   success: boolean;
   error?: {
     code?: number;
+    message?: string;
   };
 };
 
