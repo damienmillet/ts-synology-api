@@ -108,8 +108,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const user = await Syno.Core.NormalUser.getUser(params);
 
   try {
-    if (user.success && user.error?.code) {
-      res.status(user.error?.code).json(user.error);
+    if (!user.success && user.error?.code) {
+      const code = Syno.codeError(data);
+      return res.status(code).json(user.error?.message || { user });
     }
     res.status(200).json(user.data);
   } catch (error) {
