@@ -77,10 +77,10 @@ SYNOLOGY_PASS="passwd"
         return res.status(405).end("Method Not Allowed");
       }
       
-      const data = await Syno.Api.Info.query();
+      const query = await Syno.Api.Info.query();
 
       try {
-          res.status(200).json(data);
+          res.status(200).json(query);
       } catch (error) {
         console.error(error);
         res.status(500).end("");
