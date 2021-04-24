@@ -1,3 +1,6 @@
 lib/
 tsconfig.json
 .github/
+.git/
+.gitignore
+package-lock.json
