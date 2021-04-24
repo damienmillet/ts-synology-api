@@ -26,7 +26,9 @@ const Syno = {
     Task: Task,
   },
   codeError: (data: response<unknown>) =>
-    !data.success && `${data.error?.code}`.match(/[$4|5]d{2}/)
+    !data.success &&
+    data.error?.code &&
+    `${data.error?.code}`.match(/[$4|5]d{2}/)
       ? data.error?.code
       : 418,
 };
