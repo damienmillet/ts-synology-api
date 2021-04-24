@@ -7,6 +7,7 @@ import Schedule from "./download-station/schedule";
 import Statistic from "./download-station/statistic";
 import Task from "./download-station/task";
 import InfoDS from "./download-station/info";
+import { response } from "./api";
 
 const Syno = {
   Api: {
@@ -24,6 +25,10 @@ const Syno = {
     Statistic: Statistic,
     Task: Task,
   },
+  codeError: (data: response<unknown>) =>
+    !data.success && `${data.error?.code}`.match(/[$4|5]d{2}/)
+      ? data.error?.code
+      : 418,
 };
 
 export default Syno;
