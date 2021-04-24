@@ -44,11 +44,11 @@ const Task = Api && {
       .then((res) => res.json())
       .then((res: task) => res),
 
-  create: (params: createParams, File?: File) =>
+  create: (params?: createParams, File?: File) =>
     fetch(Api.queryUrl(path, { ...createDefault, ...params }), {
       method: File ? "POST" : "GET",
       headers: File ? undefined : Api.headers,
-      body: File,
+      //body: File,
     })
       .then((res) => res.json())
       .then((res: create) => res),
@@ -83,3 +83,5 @@ const Task = Api && {
 };
 
 export default Task;
+
+Task.create({ _sid: "zss", uri: "" });

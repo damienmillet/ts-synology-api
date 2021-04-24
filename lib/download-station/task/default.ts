@@ -30,7 +30,7 @@ export const infoDefault: infoParams = {
 
 export const createDefault: createParams = {
   ...baseDefault,
-  ...{ method: "create" },
+  ...{ method: "create", uri: undefined },
 };
 
 export const deleteDefault: deleteParams = {
