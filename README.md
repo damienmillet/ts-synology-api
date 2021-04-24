@@ -53,6 +53,7 @@ SYNOLOGY_PASS="passwd"
     # run again ur app
     npm run dev
     # next ll detect ur tsconfig file and autofonfigure him
+    # create ur .env file with ur config
     # create ur first api file in the api folder and Enjoy 😀
     
 ```
