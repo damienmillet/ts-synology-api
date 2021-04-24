@@ -16,7 +16,7 @@ export type infoParams = base & {
   additional?: string;
 };
 export type createParams = base & {
-  uri: string | undefined;
+  uri?: string | undefined;
   username?: string;
   password?: string;
   unzip_password?: string;
