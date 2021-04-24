@@ -2,6 +2,12 @@
 
 Api to wrap Syno API wrote in ts, npm package's transpiled in js
 
+``` typescript
+
+    import Syno from "ts-synology-api"
+
+```
+
 - [x] api
   - [x] auth
   - [x] info
@@ -50,10 +56,36 @@ SYNOLOGY_PASS="passwd"
     npm install --save-dev typescript @types/react
     # clean ur app
     rm ./pages/**/*.js && rm -rf ./public ./styles 
+    # create ur .env file with ur config
     # run again ur app
     npm run dev
     # next ll detect ur tsconfig file and autofonfigure him
-    # create ur .env file with ur config
     # create ur first api file in the api folder and Enjoy 😀
     
 ```
+
+## Basic route
+
+``` typescript
+
+    // pages/api/info/index.ts
+    import type { NextApiRequest, NextApiResponse } from "next";
+    import Syno from "ts-synology-api";
+
+    export default async (req: NextApiRequest, res: NextApiResponse) => {
+      if (req.method != "GET") {
+        return res.status(405).end("Method Not Allowed");
+      }
+      
+      const query = await Syno.Api.Info.query();
+
+      try {
+          res.status(200).json(query);
+      } catch (error) {
+        console.error(error);
+        res.status(500).end("");
+      }
+    };
+
+```
+
