@@ -4,7 +4,7 @@ export type response<T> = {
   data?: T;
   success: boolean;
   error?: {
-    code: number;
+    code?: number;
   };
 };
 
