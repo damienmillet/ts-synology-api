@@ -1,3 +1,4 @@
+import { stringify } from "querystring";
 import Api from "../../api";
 import {
   createDefault,
@@ -36,43 +37,44 @@ const Task = Api && {
       .then((res) => res.json())
       .then((res: list) => res),
 
-  info: (params?: infoParams) =>
+  info: (params: infoParams) =>
     fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
       .then((res: task) => res),
 
-  create: (params?: createParams) =>
+  create: (params: createParams, File?: File) =>
     fetch(Api.queryUrl(path, { ...createDefault, ...params }), {
-      method: "POST",
-      headers: Api.headers,
+      method: File ? "POST" : "GET",
+      headers: File ? undefined : Api.headers,
+      body: File,
     })
       .then((res) => res.json())
       .then((res: create) => res),
 
-  delete: (params?: deleteParams) =>
+  delete: (params: deleteParams) =>
     fetch(Api.queryUrl(path, { ...deleteDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
       .then((res: deleteTask) => res),
 
-  pause: (params?: pauseParams) =>
+  pause: (params: pauseParams) =>
     fetch(Api.queryUrl(path, { ...pauseDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
       .then((res: pause) => res),
 
-  resume: (params?: resumeParams) =>
+  resume: (params: resumeParams) =>
     fetch(Api.queryUrl(path, { ...resumeDefault, ...params }), {
       headers: Api.headers,
     })
       .then((res) => res.json())
       .then((res: resume) => res),
 
-  edit: (params?: editParams) =>
+  edit: (params: editParams) =>
     fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
       headers: Api.headers,
     })

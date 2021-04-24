@@ -19,7 +19,6 @@ export type createParams = base & {
   uri?: string;
   username?: string;
   password?: string;
-  file?: string;
   unzip_password?: string;
   destination?: string;
 };
