@@ -7,8 +7,11 @@ import Schedule from "./download-station/schedule";
 import Statistic from "./download-station/statistic";
 import Task from "./download-station/task";
 import InfoDS from "./download-station/info";
+import InfoDSM from "./dsm/info";
+import InfoFS from "./file-station/info";
+
 import { response } from "./api";
-import Key from "./api/auth/key";
+import List from "./file-station/list";
 
 const Syno = {
   Api: {
@@ -25,6 +28,13 @@ const Syno = {
     Schedule: Schedule,
     Statistic: Statistic,
     Task: Task,
+  },
+  Dsm: {
+    Info: InfoDSM,
+  },
+  FileStation: {
+    Info: InfoFS,
+    List: List,
   },
   codeError: (data: response<unknown>) =>
     !data.success &&
