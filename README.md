@@ -10,9 +10,11 @@ import Syno from "ts-synology-api";
 
 - [x] api
   - [x] auth
+    - [x] key
   - [x] info
 - [x] core
   - [x] normal-user
+    - [x] login-notify
 - [ ] download-station
   - [x] info
   - [x] rss
@@ -22,6 +24,11 @@ import Syno from "ts-synology-api";
   - [x] statistic
   - [x] task
   - [ ] bt-search
+- [x] dsm
+  - [x] info
+- [x] file-station
+  - [x] info
+  - [x] list
 
 ## Configuration
 
