@@ -10,3 +10,8 @@ export const userDefault: userParams = {
   ...baseDefault,
   ...{ method: "get" },
 };
+
+export const setUserDefault: userParams = {
+  ...baseDefault,
+  ...{ method: "set" },
+};

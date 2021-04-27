@@ -11,3 +11,4 @@ export type userData = {
 };
 
 export type user = response<userData>;
+export type setUser = response<undefined>;

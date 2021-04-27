@@ -8,6 +8,7 @@ import Statistic from "./download-station/statistic";
 import Task from "./download-station/task";
 import InfoDS from "./download-station/info";
 import { response } from "./api";
+import Key from "./api/auth/key";
 
 const Syno = {
   Api: {
