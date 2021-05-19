@@ -27,6 +27,6 @@ export type listParams = base & {
 };
 
 export type getInfoParams = base & {
-  path?: string;
+  path?: string | string[];
   additional?: string; // real_path, size, owner, time, perm, type or mount_point_type
 };

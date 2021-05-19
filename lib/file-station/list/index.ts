@@ -13,7 +13,7 @@ const path = "/webapi/entry.cgi";
 const List = Api && {
   /**
    * @api SYNO.FileStation.List
-   * @method get
+   * @method list_share
    * @version 2+
    * @param [_sid] token id
    * @return listShare
@@ -27,6 +27,7 @@ const List = Api && {
   /**
    * @api SYNO.FileStation.List
    * @method list
+   * @description list file of shares
    * @version 2+
    * @param [_sid] token id
    * @return list

@@ -76,10 +76,11 @@ export type fileAdditional = {
 
 export type file = {
   path: string;
-  name: string;
-  isdir: boolean;
+  name?: string;
+  isdir?: boolean;
   children?: listData;
-  additional: fileAdditional;
+  additional?: fileAdditional;
+  code?: number;
 };
 
 export type listShareData = {

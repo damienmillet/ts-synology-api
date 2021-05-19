@@ -5,11 +5,11 @@ export type detail = {
   connected_leechers?: number;
   connected_peers?: number;
   connected_seeders?: number;
-  create_time?: string;
+  create_time?: number;
   total_peers?: number;
   total_pieces?: number;
   unzip_password?: string;
-  priority?: string;
+  priority?: number;
   uri?: string;
   waiting_seconds?: number;
   destination?: string;
@@ -40,8 +40,8 @@ export type tracker = {
 
 export type transfer = {
   downloaded_pieces?: number;
-  size_downloaded?: string;
-  size_uploaded?: string;
+  size_downloaded?: number;
+  size_uploaded?: number;
   speed_download?: number;
   speed_upload?: number;
 };

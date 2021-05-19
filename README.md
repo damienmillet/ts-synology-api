@@ -24,9 +24,9 @@ import Syno from "ts-synology-api";
   - [x] statistic
   - [x] task
   - [ ] bt-search
-- [x] dsm
+- [ ] dsm
   - [x] info
-- [x] file-station
+- [ ] file-station
   - [x] info
   - [x] list
 
