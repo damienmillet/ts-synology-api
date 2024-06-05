@@ -3,6 +3,7 @@ import { loginParams, logoutParams } from "./type.params";
 const baseDefault = {
   api: "SYNO.API.Auth",
   version: 7,
+  _sid: undefined,
 };
 
 export const loginDefault: loginParams = {

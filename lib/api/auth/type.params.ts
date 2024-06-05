@@ -1,7 +1,7 @@
 type base = {
-  api: string;
-  version: number;
-  method: string;
+  api?: string;
+  version?: number;
+  method?: string;
   session?: string | string[];
 };
 
