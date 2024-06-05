@@ -14,12 +14,7 @@ const NormalUser = Api && {
    * @param [_sid] token id
    * @return check
    */
-  getUser: (params?: userParams) =>
-    fetch(Api.queryUrl(path, { ...userDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: user) => res),
+  getUser: (params?: userParams) => Api.get(path, userDefault, params),
   /**
    * @api SYNO.DSM.NormalUser.LoginNotify
    * @method set
@@ -27,13 +22,7 @@ const NormalUser = Api && {
    * @param [_sid] token id
    * @return boolean
    */
-  setUser: (params?: setUserParams) =>
-    fetch(Api.queryUrl(path, { ...setUserDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: setUser) => res),
-  LoginNotify: LoginNotify,
+  setUser: (params?: setUserParams) => Api.get(path, setUserDefault, params),
 };
 
 export default NormalUser;

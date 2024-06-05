@@ -1,6 +1,4 @@
-import { response } from "../../../api";
-
-export type feedData = {
+export type feed = {
   download_uri: string;
   external_link: string;
   size: string;
@@ -8,11 +6,8 @@ export type feedData = {
   title: string;
 };
 
-export type listData = {
+export type list = {
   offset: number;
   total: number;
   feeds: feed[];
 };
-
-export type feed = response<feedData>;
-export type list = response<listData>;

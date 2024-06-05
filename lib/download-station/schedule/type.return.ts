@@ -1,9 +1,6 @@
-import { response } from "../../api";
-
-export type configData = {
+export type config = {
   enabled?: boolean;
   emule_enabled?: boolean;
 };
 
-export type config = response<configData>;
-export type setConfig = response<undefined>;
+export type setConfig = undefined;

@@ -13,12 +13,7 @@ const LoginNotify = Api && {
    * @param _sid token id
    * @return check
    */
-  check: (params?: checkParams) =>
-    fetch(Api.queryUrl(path, { ...checkDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: check) => res),
+  check: (params?: checkParams) => Api.get(path, checkDefault, params),
 };
 
 export default LoginNotify;

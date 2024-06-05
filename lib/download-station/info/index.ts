@@ -4,7 +4,7 @@ import {
   infoDefault,
   setServerConfigDefault,
 } from "./default";
-import { info, config, setServerConfig } from "./type.return";
+import { config, info, setServerConfig } from "./type.return";
 import {
   getConfigParams,
   infoParams,
@@ -14,24 +14,11 @@ import {
 const path = "/webapi/DownloadStation/info.cgi";
 
 const Info = Api && {
-  get: (params?: infoParams) =>
-    fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: info) => res),
+  get: (params?: infoParams) => Api.get(path, infoDefault, params),
   getConfig: (params?: getConfigParams) =>
-    fetch(Api.queryUrl(path, { ...getConfigDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: config) => res),
+    Api.get(path, getConfigDefault, params),
   setServerConfig: (params?: setServerConfigParams) =>
-    fetch(Api.queryUrl(path, { ...setServerConfigDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: setServerConfig) => res),
+    Api.get(path, setServerConfigDefault, params),
 };
 
 export default Info;

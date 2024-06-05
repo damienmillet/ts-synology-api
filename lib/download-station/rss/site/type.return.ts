@@ -1,6 +1,4 @@
-import { response } from "../../../api";
-
-export type siteData = {
+export type site = {
   id: number;
   is_updating: boolean;
   title?: string;
@@ -9,12 +7,10 @@ export type siteData = {
   username?: string;
 };
 
-export type listData = {
+export type list = {
   offset: number;
   total: number;
   site: site[];
 };
 
-export type site = response<siteData>;
-export type list = response<listData>;
-export type refresh = response<undefined>;
+export type refresh = undefined;

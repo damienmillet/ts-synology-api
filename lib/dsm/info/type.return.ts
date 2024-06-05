@@ -1,6 +1,4 @@
-import { response } from "../../api";
-
-export type infoData = {
+export type info = {
   codepage: string;
   model: string;
   ram: number;
@@ -12,5 +10,3 @@ export type infoData = {
   version: string;
   version_string: string;
 };
-
-export type info = response<infoData>;

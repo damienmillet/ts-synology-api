@@ -13,12 +13,7 @@ const Info = Api && {
    * @param _sid token id
    * @return info about syno
    */
-  get: (params?: infoParams) =>
-    fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: info) => res),
+  get: (params?: infoParams) => Api.get(path, infoDefault, params),
 };
 
 export default Info;

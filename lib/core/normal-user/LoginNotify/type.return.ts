@@ -1,7 +1,3 @@
-import { response } from "../../../api";
-
-export type checkData = {
+export type check = {
   need_notify: boolean;
 };
-
-export type check = response<checkData>;

@@ -1,7 +1,5 @@
-import { response } from "../../api";
-
 export type item = { gid: number };
-export type infoData = {
+export type info = {
   enable_list_usergrp: boolean;
   hostname: string;
   is_manager: boolean;
@@ -17,5 +15,3 @@ export type infoData = {
   system_codepage: string;
   uid: number;
 };
-
-export type info = response<infoData>;

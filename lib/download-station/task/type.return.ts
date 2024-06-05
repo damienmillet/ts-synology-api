@@ -1,5 +1,3 @@
-import { response } from "../../api";
-
 export type detail = {
   completed_time?: number;
   connected_leechers?: number;
@@ -46,7 +44,7 @@ export type transfer = {
   speed_upload?: number;
 };
 
-export type taskData = {
+export type task = {
   additional?: {
     detail?: detail;
     transfer?: transfer;
@@ -66,9 +64,9 @@ export type taskData = {
   username: string;
 };
 
-export type listData = {
+export type list = {
   offset: number;
-  tasks: taskData[];
+  tasks: task[];
   total: number;
 };
 
@@ -77,10 +75,8 @@ export type id = {
   id: string;
 };
 
-export type list = response<listData>;
-export type task = response<taskData>;
-export type create = response<undefined>;
-export type deleteTask = response<[id[]]>;
-export type pause = response<[id[]]>;
-export type resume = response<[id[]]>;
-export type edit = response<[id[]]>;
+export type create = undefined;
+export type deleteTask = [id[]];
+export type pause = [id[]];
+export type resume = [id[]];
+export type edit = [id[]];

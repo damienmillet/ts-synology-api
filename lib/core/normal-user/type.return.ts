@@ -1,6 +1,4 @@
-import { response } from "../../api";
-
-export type userData = {
+export type user = {
   OTP_enable: boolean;
   OTP_enforced: boolean;
   disallowchpasswd: boolean;
@@ -10,5 +8,4 @@ export type userData = {
   username: string;
 };
 
-export type user = response<userData>;
-export type setUser = response<undefined>;
+export type setUser = undefined;

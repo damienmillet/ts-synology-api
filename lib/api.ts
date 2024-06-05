@@ -1,36 +1,82 @@
-import { stringify } from "querystring";
+import ApiError from "./error";
+import { response } from "./types";
 
-export type response<T> = {
-  data?: T;
-  success: boolean;
-  error?: {
-    code?: number;
-    message?: string;
-  };
-};
-
-const Api = {
-  baseUrl: process.env.SYNOLOGY_URI,
-  headers: new Headers({
+class Api {
+  baseUrl = process.env.SYNOLOGY_URI;
+  headers = {
+    Authorization: `Bearer ${process.env.SYNOLOGY_API}`,
     Accept: "application/json",
-    "Content-Type": "application/json",
-  }),
+  };
 
-  queryUrl: (uri: string, params?: {}) => {
-    const url = new URL(Api.baseUrl + uri);
-    // if (params) {
-    //   const str = JSON.stringify(params);
-    //   const url = Api.isUrl(str)?.[0];
-    //   const e = url && str.replace(url, encodeURIComponent(url));
-    //   params = e && JSON.parse(e);
-    // }
-    params && (url.search = new URLSearchParams(stringify(params)).toString());
+  queryUrl(uri: string, params?: any): string {
+    const url = new URL(this.baseUrl + uri);
+    if (params) url.search = new URLSearchParams(params).toString();
     return url.toString();
-  },
-  // isUrl: (string: string) =>
-  //   string.match(
-  //     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
-  //   ),
-};
+  }
+  async fetch(
+    url: string,
+    options?: RequestInit,
+  ) {
+    const res = await fetch(url, { ...options, headers: this.headers });
+    const data = async () => {
+      // if url/time return text()
+      if (res.status === 204) return;
+      if (res.url.includes("time") || res.url.includes("time/iso")) {
+        return await res.text();
+      }
+      if (res.headers.get("Content-Type")?.includes("application/json")) {
+        return await res.json();
+      }
+      return res;
+    };
 
-export default Api;
+    const error = !res.ok ? await (new ApiError(res)).handleError() : undefined;
+
+    return {
+      success: res.ok,
+      data: await data(),
+      error: error,
+    };
+  }
+  get<T = unknown>(
+    url: string,
+    params?: any,
+    options?: RequestInit,
+  ) {
+    return this.fetch(this.queryUrl(url, params), options) as Promise<
+      response<T>
+    >;
+  }
+  post<T = unknown>(
+    url: string,
+    body: BodyInit,
+    params?: any,
+    options?: RequestInit,
+  ) {
+    return this.fetch(this.queryUrl(url, params), {
+      ...options,
+      method: "POST",
+      body,
+    }) as Promise<response<T>>;
+  }
+  put<T = unknown>(
+    url: string,
+    body: any,
+    params?: any,
+    options?: RequestInit,
+  ) {
+    return this.fetch(this.queryUrl(url, params), {
+      ...options,
+      method: "PUT",
+      body: body,
+    }) as Promise<response<T>>;
+  }
+  delete<T = unknown>(url: string, params?: any, options?: RequestInit) {
+    return this.fetch(this.queryUrl(url, params), {
+      ...options,
+      method: "DELETE",
+    }) as Promise<response<T>>;
+  }
+}
+
+export default new Api();

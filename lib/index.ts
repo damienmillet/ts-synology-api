@@ -9,8 +9,6 @@ import Task from "./download-station/task";
 import InfoDS from "./download-station/info";
 import InfoDSM from "./dsm/info";
 import InfoFS from "./file-station/info";
-
-import { response } from "./api";
 import List from "./file-station/list";
 
 const Syno = {
@@ -36,12 +34,6 @@ const Syno = {
     Info: InfoFS,
     List: List,
   },
-  codeError: (data: response<unknown>) =>
-    !data.success &&
-    data.error?.code &&
-    `${data.error?.code}`.match(/[$4|5]d{2}/)
-      ? data.error?.code
-      : 418,
 };
 
 export default Syno;

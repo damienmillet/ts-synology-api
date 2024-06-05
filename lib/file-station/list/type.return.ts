@@ -1,5 +1,3 @@
-import { response } from "../../api";
-
 export type acl = {
   append: boolean;
   del: boolean;
@@ -78,25 +76,21 @@ export type file = {
   path: string;
   name?: string;
   isdir?: boolean;
-  children?: listData;
+  children?: list;
   additional?: fileAdditional;
   code?: number;
 };
 
-export type listShareData = {
+export type listShare = {
   total: number;
   offset: number;
   shares: sharedFolder[];
 };
 
-export type listData = {
+export type list = {
   total: number;
   offset: number;
   files: file[];
 };
 
-export type infoData = { files: file[] };
-
-export type listShare = response<listShareData>;
-export type list = response<listData>;
-export type info = response<infoData>;
+export type info = { files: file[] };

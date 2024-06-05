@@ -1,5 +1,3 @@
-import { response } from "../../api";
-
 export type info = {
   [key: string]: {
     maxVersion: number;
@@ -8,4 +6,4 @@ export type info = {
   };
 };
 
-export type query = response<info[]>;
+export type query = info[];

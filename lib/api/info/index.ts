@@ -13,12 +13,7 @@ const Info = Api && {
    * @param [query] api
    * @return query
    */
-  query: (params?: queryParams) =>
-    fetch(Api.queryUrl(path, { ...queryDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: query) => res),
+  query: (params?: queryParams) => Api.get(path, queryDefault, params),
 };
 
 export default Info;

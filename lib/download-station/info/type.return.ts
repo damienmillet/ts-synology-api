@@ -1,12 +1,10 @@
-import { response } from "../../api";
-
-export type infoData = {
+export type info = {
   is_manager: boolean;
   version: number;
   version_string: string;
 };
 
-export type configData = {
+export type config = {
   bt_max_download?: number;
   bt_max_upload?: number;
   emule_enabled?: boolean;
@@ -20,6 +18,4 @@ export type configData = {
   emule_default_destination?: string;
 };
 
-export type info = response<infoData>;
-export type config = response<configData>;
-export type setServerConfig = response<undefined>;
+export type setServerConfig = undefined;
