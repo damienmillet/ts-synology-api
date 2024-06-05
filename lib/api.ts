@@ -9,7 +9,6 @@ class Api {
   queryUrl(uri: string, params?: any): string {
     const url = new URL(this.baseUrl + uri);
     if (params) url.search = new URLSearchParams(params).toString();
-    console.log(url.toString());
     return url.toString();
   }
   async fetch(
