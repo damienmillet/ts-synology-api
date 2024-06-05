@@ -1,5 +1,4 @@
 import { readFileSync } from "fs";
-import ApiError from "./error";
 import { response } from "./types";
 
 class Api {
@@ -28,7 +27,7 @@ class Api {
       if (res.headers.get("Content-Type")?.includes("application/json")) {
         const json = await res.json();
         if (!json.success) {
-          const error = readFileSync("errors.json", "utf-8");
+          const error = readFileSync("./errors.json", "utf-8");
           const errors = JSON.parse(error);
           const message = errors[api][method][json.error.code];
           json.message = message;
