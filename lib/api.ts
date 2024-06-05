@@ -1,3 +1,4 @@
+import { readFileSync } from "fs";
 import ApiError from "./error";
 import { response } from "./types";
 
@@ -17,12 +18,22 @@ class Api {
     url: string,
     options?: RequestInit,
   ) {
+    const { searchParams } = new URL(url);
+    const api = searchParams.get("api") as string;
+    const method = searchParams.get("method") as string;
+
     const res = await fetch(url, { ...options, headers: this.headers });
     const data = async () => {
-      // if url/time return text()
       if (res.status === 204) return;
       if (res.headers.get("Content-Type")?.includes("application/json")) {
-        return await res.json();
+        const json = await res.json();
+        if (!json.success) {
+          const error = readFileSync("errors.json", "utf-8");
+          const errors = JSON.parse(error);
+          const message = errors[api][method][json.error.code];
+          json.message = message;
+        }
+        return json;
       }
       return res;
     };
