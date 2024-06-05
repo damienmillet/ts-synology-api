@@ -21,22 +21,13 @@ class Api {
     const data = async () => {
       // if url/time return text()
       if (res.status === 204) return;
-      if (res.url.includes("time") || res.url.includes("time/iso")) {
-        return await res.text();
-      }
       if (res.headers.get("Content-Type")?.includes("application/json")) {
         return await res.json();
       }
       return res;
     };
 
-    const error = !res.ok ? await (new ApiError(res)).handleError() : undefined;
-
-    return {
-      success: res.ok,
-      data: await data(),
-      error: error,
-    };
+    return await data();
   }
   get<T = unknown>(
     url: string,

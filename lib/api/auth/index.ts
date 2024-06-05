@@ -1,6 +1,5 @@
 import Api from "../../api";
 import { loginDefault, logoutDefault } from "./default";
-import Key from "./key";
 import { loginParams, logoutParams } from "./type.params";
 import { login, logout } from "./type.return";
 
