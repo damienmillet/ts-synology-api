@@ -2,7 +2,7 @@ import Api from "../../api";
 import { loginDefault, logoutDefault } from "./default";
 import Key from "./key";
 import { loginParams, logoutParams } from "./type.params";
-import { login } from "./type.return";
+import { login, logout } from "./type.return";
 
 const path = "/webapi/auth.cgi";
 
@@ -10,22 +10,23 @@ const Auth = {
   /**
    * @api SYNO.API.Auth
    * @method login
-   * @version 1-6
+   * @version 7
    * @account
    * @passwd
-   * @param [_sid] token id
-   * @params format type of security
-   * @return login send api or create cookie
+   * @params format type of security cookie | sid
+   * @return login
    */
-  login: (params?: loginParams) => Api.get(path, loginDefault, params),
+  login: (params?: loginParams) =>
+    Api.get<login>(path, { ...loginDefault, ...params }),
   /**
    * @api SYNO.API.Auth
    * @method logout
-   * @version 1
+   * @version 7
    * @param [_sid] token id
-   * @return logout remove cookie
+   * @return logout
    */
-  logout: (params?: logoutParams) => Api.get(path, logoutDefault, params),
+  logout: (params?: logoutParams) =>
+    Api.get<logout>(path, { ...logoutDefault, ...params }),
 };
 
 export default Auth;
