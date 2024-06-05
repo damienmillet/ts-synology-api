@@ -1,49 +1,51 @@
 {
-  "SYNO.API.Auth": [
-    {
-      "login": [
-        {
-          "code": 400,
-          "message": "No such account or incorrect password."
-        },
-        {
-          "code": 401,
-          "message": "Disabled account."
-        },
-        {
-          "code": 402,
-          "message": "Denied permission."
-        },
-        {
-          "code": 403,
-          "message": "2-factor authentication code required."
-        },
-        {
-          "code": 404,
-          "message": "Failed to authenticate 2-factor authentication code."
-        },
-        {
-          "code": 406,
-          "message": "Enforce to authenticate with 2-factor authentication code."
-        },
-        {
-          "code": 407,
-          "message": "Blocked IP source."
-        },
-        {
-          "code": 408,
-          "message": "Expired password cannot change."
-        },
-        {
-          "code": 409,
-          "message": "Expired password."
-        },
-        {
-          "code": 410,
-          "message": "Password must be changed."
-        }
-      ],
-      "logout": {}
-    }
+  [
+    "SYNO.API.Auth": [
+      {
+        "login": [
+          {
+            "code": 400,
+            "message": "No such account or incorrect password."
+          },
+          {
+            "code": 401,
+            "message": "Disabled account."
+          },
+          {
+            "code": 402,
+            "message": "Denied permission."
+          },
+          {
+            "code": 403,
+            "message": "2-factor authentication code required."
+          },
+          {
+            "code": 404,
+            "message": "Failed to authenticate 2-factor authentication code."
+          },
+          {
+            "code": 406,
+            "message": "Enforce to authenticate with 2-factor authentication code."
+          },
+          {
+            "code": 407,
+            "message": "Blocked IP source."
+          },
+          {
+            "code": 408,
+            "message": "Expired password cannot change."
+          },
+          {
+            "code": 409,
+            "message": "Expired password."
+          },
+          {
+            "code": 410,
+            "message": "Password must be changed."
+          }
+        ],
+        "logout": {}
+      }
+    ]
   ]
 }
