@@ -2,6 +2,7 @@ import Api from "../../api";
 import {
   createDefault,
   deleteDefault,
+  editDefault,
   infoDefault,
   listDefault,
   pauseDefault,
@@ -30,18 +31,9 @@ const path = "/webapi/DownloadStation/task.cgi";
 
 const Task = Api && {
   list: (params?: listParams) =>
-    fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: list) => res),
-
+    Api.get<list>(path, { ...listDefault, ...params }),
   info: (params: infoParams) =>
-    fetch(Api.queryUrl(path, { ...infoDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: task) => res),
+    Api.get<task>(path, { ...infoDefault, ...params }),
 
   create: (params?: createParams, File?: File) =>
     fetch(Api.queryUrl(path, { ...createDefault, ...params }), {
@@ -51,34 +43,15 @@ const Task = Api && {
     })
       .then((res) => res.json())
       .then((res: create) => res),
-
   delete: (params: deleteParams) =>
-    fetch(Api.queryUrl(path, { ...deleteDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: deleteTask) => res),
-
+    Api.delete(path, { ...deleteDefault, ...params }),
   pause: (params: pauseParams) =>
-    fetch(Api.queryUrl(path, { ...pauseDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: pause) => res),
+    Api.get<pause>(path, { ...pauseDefault, ...params }),
 
   resume: (params: resumeParams) =>
-    fetch(Api.queryUrl(path, { ...resumeDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: resume) => res),
-
+    Api.get<resume>(path, { ...resumeDefault, ...params }),
   edit: (params: editParams) =>
-    fetch(Api.queryUrl(path, { ...listDefault, ...params }), {
-      headers: Api.headers,
-    })
-      .then((res) => res.json())
-      .then((res: edit) => res),
+    Api.get<edit>(path, { ...editDefault, ...params }),
 };
 
 export default Task;
