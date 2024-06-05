@@ -10,7 +10,7 @@ import {
 
 const baseDefault = {
   api: "SYNO.DownloadStation.Task",
-  version: 1,
+  version: 3,
   _sid: undefined,
 };
 
