@@ -22,7 +22,10 @@ class Api {
     const res = await fetch(url, { ...options, headers: this.headers });
     const data = async () => {
       if (res.status === 204) return;
-      if (res.headers.get("Content-Type")?.includes("application/json")) {
+      if (
+        res.headers.get("Content-Type")?.includes("application/json") ||
+        res.headers.get("Content-Type")?.includes('text/plain; charset="UTF-8"')
+      ) {
         const json = await res.json();
         if (!json.success) {
           // add error message from code
