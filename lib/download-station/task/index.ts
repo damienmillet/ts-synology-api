@@ -34,14 +34,8 @@ const Task = Api && {
     Api.get<list>(path, { ...listDefault, ...params }),
   info: (params: infoParams) =>
     Api.get<task>(path, { ...infoDefault, ...params }),
-  // create: (params?: createParams, File?: File) => Api.post(path, { ...createDefault, ...params, {body:File} })
-  // fetch(Api.queryUrl(path, { ...createDefault, ...params }), {
-  //   method: File ? "POST" : "GET",
-  //   headers: File ? undefined : Api.headers,
-  //   body: File,
-  // })
-  //   .then((res) => res.json())
-  //   .then((res: create) => res),
+  create: (params?: createParams, File?: File) =>
+    Api.get(path, { ...createDefault, ...params }),
   delete: (params: deleteParams) =>
     Api.delete(path, { ...deleteDefault, ...params }),
   pause: (params: pauseParams) =>
