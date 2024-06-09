@@ -37,10 +37,9 @@ const Task = Api && {
   create: (params?: createParams, File?: File) =>
     Api.get(path, { ...createDefault, ...params }),
   delete: (params: deleteParams) =>
-    Api.delete(path, { ...deleteDefault, ...params }),
+    Api.get<deleteTask>(path, { ...deleteDefault, ...params }),
   pause: (params: pauseParams) =>
     Api.get<pause>(path, { ...pauseDefault, ...params }),
-
   resume: (params: resumeParams) =>
     Api.get<resume>(path, { ...resumeDefault, ...params }),
   edit: (params: editParams) =>
