@@ -2,7 +2,7 @@ type base = {
   api?: string;
   version?: number;
   method?: string;
-  session?: string | string[];
+  session?: string;
 };
 
 export type loginParams = base & {

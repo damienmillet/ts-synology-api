@@ -128,3 +128,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 ```
+
+## Definition
+
+INFO : `/var/packages/DownloadStation`
+API : `/var/packages/DownloadStation/target/webapi`
+LIB : `/var/packages/DownloadStation/target/webapi`
+CGI : `/var/packages/DownloadStation/target/webapi`
+SO : `/var/packages/DownloadStation/target/webapi`
+
+```typescript 
+`/var/packages/DownloadStation/target/webapi`
