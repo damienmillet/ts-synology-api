@@ -4,6 +4,7 @@ class Api {
   baseUrl = process.env.SYNOLOGY_URI;
   headers = {
     Accept: "application/json",
+    "Cache-Control": "no-cache",
   };
 
   queryUrl(uri: string, params?: any): string {
