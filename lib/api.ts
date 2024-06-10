@@ -49,7 +49,7 @@ class Api {
   }
   post<T = unknown>(
     url: string,
-    body: BodyInit,
+    body?: BodyInit,
     params?: any,
     options?: RequestInit,
   ) {

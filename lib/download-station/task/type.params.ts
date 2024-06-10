@@ -16,11 +16,12 @@ export type infoParams = base & {
   additional?: string;
 };
 export type createParams = base & {
-  uri?: string | string[];
-  username?: string | string[];
-  password?: string | string[];
-  unzip_password?: string | string[];
-  destination?: string | string[];
+  uri?: string;
+  file?: string | string[];
+  username?: string;
+  password?: string;
+  unzip_password?: string;
+  destination?: string;
 };
 export type deleteParams = base & {
   id: string | undefined;
