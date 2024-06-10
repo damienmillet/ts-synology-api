@@ -36,7 +36,7 @@ const Task = Api && {
     Api.get<task>(path, { ...infoDefault, ...params }),
   // doc say POST but it's GET
   create: (params?: createParams, File?: File) =>
-    Api.get(path, undefined, { ...createDefault, ...params }),
+    Api.get(path, { ...createDefault, ...params }),
   delete: (params: deleteParams) =>
     Api.get<deleteTask>(path, { ...deleteDefault, ...params }),
   pause: (params: pauseParams) =>
