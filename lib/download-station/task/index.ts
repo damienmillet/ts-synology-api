@@ -17,15 +17,7 @@ import {
   pauseParams,
   resumeParams,
 } from "./type.params";
-import {
-  create,
-  deleteTask,
-  edit,
-  list,
-  pause,
-  resume,
-  task,
-} from "./type.return";
+import { deleteTask, edit, list, pause, resume, task } from "./type.return";
 
 const path = "/webapi/DownloadStation/task.cgi";
 
@@ -36,7 +28,7 @@ const Task = Api && {
     Api.get<task>(path, { ...infoDefault, ...params }),
   // doc say POST but it's GET
   create: (params?: createParams, File?: File) =>
-    Api.get(path, { ...createDefault, ...params }),
+    Api.get<null>(path, { ...createDefault, ...params }),
   delete: (params: deleteParams) =>
     Api.get<deleteTask>(path, { ...deleteDefault, ...params }),
   pause: (params: pauseParams) =>

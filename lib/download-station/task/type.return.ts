@@ -75,7 +75,6 @@ export type id = {
   id: string;
 };
 
-export type create = undefined;
 export type deleteTask = [id[]];
 export type pause = [id[]];
 export type resume = [id[]];
