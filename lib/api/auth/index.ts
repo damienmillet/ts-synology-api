@@ -1,5 +1,5 @@
 import Api from "../../api";
-import { loginDefault, logoutDefault } from "./default";
+import { baseDefault, loginDefault, logoutDefault } from "./default";
 import { loginParams, logoutParams } from "./type.params";
 import { login, logout } from "./type.return";
 
@@ -16,7 +16,7 @@ const Auth = {
    * @return login
    */
   login: (params?: loginParams) =>
-    Api.get<login>(path, { ...loginDefault, ...params }),
+    Api.get<login>(path, { ...baseDefault, ...loginDefault, ...params }),
   /**
    * @api SYNO.API.Auth
    * @method logout
@@ -25,7 +25,7 @@ const Auth = {
    * @return logout
    */
   logout: (params?: logoutParams) =>
-    Api.get<logout>(path, { ...logoutDefault, ...params }),
+    Api.get<logout>(path, { ...baseDefault, ...logoutDefault, ...params }),
 };
 
 export default Auth;

@@ -1,8 +1,7 @@
-type base = {
+export type base = {
   api: string;
   version: number;
   method: string;
-  session?: string;
 };
 
 export type loginParams = base & {
@@ -14,8 +13,10 @@ export type loginParams = base & {
   enable_device_token?: boolean;
   device_name?: string;
   device_id?: string;
+  session?: string;
 };
 
 export type logoutParams = base & {
   _sid: string | string[] | undefined;
+  session?: string;
 };

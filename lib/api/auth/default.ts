@@ -1,9 +1,8 @@
 import { loginParams, logoutParams } from "./type.params";
 
-const baseDefault = {
+export const baseDefault = {
   api: "SYNO.API.Auth",
   version: 7,
-  session: undefined,
 };
 
 export const loginDefault: loginParams = {
