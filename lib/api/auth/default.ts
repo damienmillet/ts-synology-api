@@ -12,6 +12,7 @@ export const loginDefault: loginParams = {
     account: process.env.SYNOLOGY_USER as string,
     passwd: process.env.SYNOLOGY_PASS as string,
     format: "sid",
+    session: "",
   },
 };
 
@@ -19,6 +20,7 @@ export const logoutDefault: logoutParams = {
   ...baseDefault,
   ...{
     method: "logout",
-    _sid: undefined,
+    session: "",
+    _sid: "",
   },
 };
