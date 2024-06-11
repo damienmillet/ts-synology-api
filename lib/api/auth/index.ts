@@ -24,8 +24,8 @@ const Auth = {
    * @param [_sid] token id
    * @return logout
    */
-  logout: (session: string) =>
-    Api.get<logout>(path, { ...logoutDefault, session }),
+  logout: (session: string, sid: string) =>
+    Api.get<logout>(path, { ...logoutDefault, session, _sid: sid }),
 };
 
 export default Auth;
