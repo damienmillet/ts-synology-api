@@ -15,8 +15,8 @@ const Auth = {
    * @params format type of security cookie | sid
    * @return login
    */
-  login: (params?: loginParams) =>
-    Api.get<login>(path, { ...baseDefault, ...loginDefault, ...params }),
+  login: (session: string) =>
+    Api.get<login>(path, { ...loginDefault, session }),
   /**
    * @api SYNO.API.Auth
    * @method logout
@@ -24,8 +24,8 @@ const Auth = {
    * @param [_sid] token id
    * @return logout
    */
-  logout: (params?: logoutParams) =>
-    Api.get<logout>(path, { ...baseDefault, ...logoutDefault, ...params }),
+  logout: (session: string) =>
+    Api.get<logout>(path, { ...logoutDefault, session }),
 };
 
 export default Auth;
