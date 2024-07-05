@@ -4,3 +4,4 @@ tsconfig.json
 .git/
 .gitignore
 package-lock.json
+.env

@@ -17,11 +17,11 @@ import Syno from "ts-synology-api";
     - [x] login-notify
 - [ ] download-station
   - [x] info
-  - [x] rss
-    - [x] site
-    - [x] feed
-  - [x] schedule
-  - [x] statistic
+  - [ ] rss
+    - [ ] site
+    - [ ] feed
+  - [ ] schedule
+  - [ ] statistic
   - [x] task
   - [ ] bt-search
 - [ ] dsm
@@ -29,12 +29,13 @@ import Syno from "ts-synology-api";
 - [ ] file-station
   - [x] info
   - [x] list
+- [ ] create a script to get all definitions from a syno to update.
 
 ## Configuration
 
 ```ini
 # .env for process.env global
-SYNOLOGY_URI="http[s]://ip:port"
+SYNOLOGY_URL="http[s]://ip:port"
 SYNOLOGY_USER="user"
 SYNOLOGY_PASS="passwd"
 ```
@@ -72,70 +73,14 @@ SYNOLOGY_PASS="passwd"
     # create ur first api file in the api folder and Enjoy 😀
 
 ```
-
-## Basic route
-
-```typescript
-// pages/api/info/index.ts
-import type { NextApiRequest, NextApiResponse } from "next";
-import Syno from "ts-synology-api";
-
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method != "GET") {
-    return res.status(405).end("Method Not Allowed");
-  }
-
-  const query = await Syno.Api.Info.query();
-
-  try {
-    if (query.success && query.error?.code) {
-      res.status(query.error?.code).json(query.error);
-    }
-    res.status(200).json(query.data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).end("");
-  }
-};
-```
-
-```typescript
-// pages/api/user.ts
-import type { NextApiRequest, NextApiResponse } from "next";
-import Syno from "ts-synology-api";
-import { userParams } from "ts-synology-api/dist/core/normal-user/type.params";
-
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method != "GET") {
-    return res.status(405).end("Method Not Allowed");
-  }
-
-  const params: userParams = { _sid: (await Syno.Api.Auth.login()).data?.sid };
-
-  const user = await Syno.Core.NormalUser.getUser(params);
-
-  try {
-    if (!user.success && user.error?.code) {
-      const code = Syno.codeError(data);
-      return res.status(code).json(user.error?.message || { user });
-    }
-    res.status(200).json(user.data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).end("");
-  } finally {
-    await Syno.Api.Auth.logout({ _sid: params._sid });
-  }
-};
-```
-
 ## Definition
 
-INFO : `/var/packages/DownloadStation`
-API : `/var/packages/DownloadStation/target/webapi`
-LIB : `/var/packages/DownloadStation/target/webapi`
-CGI : `/var/packages/DownloadStation/target/webapi`
-SO : `/var/packages/DownloadStation/target/webapi`
+INFO : `/var/packages/DownloadStation` - version
+API : `/var/packages/DownloadStation/target/webapi` - api's folder
+LIB : `/var/packages/DownloadStation/target/webapi` - definition json
+CGI : `/var/packages/DownloadStation/target/webapi` - compiled
+SO : `/var/packages/DownloadStation/target/webapi` - compiled
 
-```typescript 
-`/var/packages/DownloadStation/target/webapi`
+# INFO
+Api's url was updated to respond to the /entry.cgi 
+root: /usr/syno/synoman
