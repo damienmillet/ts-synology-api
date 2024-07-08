@@ -90,12 +90,17 @@ export type pause = [id[]];
 export type resume = [id[]];
 export type edit = [id[]];
 
+/**
+ * @param sid
+ * @param options can be "detail,transfer,file,tracker,peer", separated by comma. ("file,tracker,peer" : Bt only)
+ * @returns
+ */
 export async function list(
   sid: string,
-  options = {
-    offset: "0",
-    limit: "25",
-    additional: "detail,transfer,file,tracker,peer",
+  options: {
+    offset?: string;
+    limit?: string;
+    additional?: string;
   },
 ): Promise<ApiResponse<list>> {
   return fetchAPI(service, "list", apiPath, {
