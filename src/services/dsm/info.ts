@@ -17,7 +17,7 @@ export type dsminfo = {
   version_string: string;
 };
 
-export async function getinfo(sid: string): Promise<ApiResponse<dsminfo>> {
+export async function getInfo(sid: string): Promise<ApiResponse<dsminfo>> {
   return fetchAPI(service, "getinfo", apiPath, {
     api: service,
     method: "getinfo",
