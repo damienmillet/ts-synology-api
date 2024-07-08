@@ -92,7 +92,7 @@ export type edit = [id[]];
 
 /**
  * @param sid
- * @param options can be "detail,transfer,file,tracker,peer", separated by comma. ("file,tracker,peer" : Bt only)
+ * @param options additional : can be "detail,transfer,file,tracker,peer", separated by comma. ("file,tracker,peer" : Bt only)
  * @returns
  */
 export async function list(
