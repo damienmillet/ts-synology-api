@@ -97,7 +97,7 @@ export type edit = [id[]];
  */
 export async function list(
   sid: string,
-  options: {
+  options?: {
     offset?: string;
     limit?: string;
     additional?: string;
@@ -133,6 +133,16 @@ export async function create(sid: string, options?: {
   unzip_password?: string;
   destination?: string;
 }): Promise<ApiResponse<info>> {
+  if (options?.file) {
+    return fetchAPI(service, "create", apiPath, {
+      api: service,
+      method: "create",
+      version: "3",
+      _sid: sid,
+      ...options,
+    }, { method: "POST" });
+  }
+
   return fetchAPI(service, "create", apiPath, {
     api: service,
     method: "create",

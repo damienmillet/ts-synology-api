@@ -5,6 +5,7 @@ export async function fetchAPI(
   method: string,
   path: string,
   params: Record<string, string>,
+  options?: RequestInit,
 ): Promise<any> {
   const url = new URL("/webapi/" + path, process.env.SYNOLOGY_URL);
 
@@ -12,7 +13,10 @@ export async function fetchAPI(
     url.searchParams.append(key, params[key])
   );
 
-  const response = await fetch(url.toString());
+  const response = await fetch(url.toString(), {
+    ...options,
+    cache: "no-cache",
+  });
 
   if (!response.ok) {
     return {
