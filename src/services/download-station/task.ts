@@ -196,7 +196,7 @@ export async function edit(
 export async function remove(
   id: string,
   sid: string,
-  force_complete?: boolean,
+  force_complete: boolean,
 ): Promise<ApiResponse<info>> {
   return fetchAPI(service, "delete", apiPath, {
     api: service,
@@ -204,6 +204,6 @@ export async function remove(
     version: "3",
     _sid: sid,
     id,
-    force_complete: `${force_complete}`,
+    force_complete: `${force_complete ?? false}`,
   });
 }

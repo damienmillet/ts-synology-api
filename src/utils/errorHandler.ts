@@ -63,10 +63,19 @@ const errorMessages: Record<
     ],
     "delete": [
       { code: 404, message: "Invalid task id" },
+      { code: 405, message: "Invalid task action" },
       { code: 408, message: "File does not exist" },
     ],
-    "pause": [],
-    "resume": [],
+    "pause": [
+      { code: 404, message: "Invalid task id" },
+      { code: 405, message: "Invalid task action" },
+      { code: 408, message: "File does not exist" },
+    ],
+    "resume": [
+      { code: 404, message: "Invalid task id" },
+      { code: 405, message: "Invalid task action" },
+      { code: 408, message: "File does not exist" },
+    ],
     "edit": [
       { code: 400, message: "File upload failed" },
       { code: 401, message: "Max number of tasks reached" },
