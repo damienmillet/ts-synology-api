@@ -3,15 +3,6 @@ export interface ApiResponse<T = undefined> {
   data: T | null;
   error?: {
     code: number;
-    errors: any;
+    message: string;
   };
-  code?: number;
-  message?: string;
 }
-
-// ! a check to see what's the type who working
-// {
-//   success: false,
-//   code: 400,
-//   message: 'No such account or incorrect password.'
-// }
