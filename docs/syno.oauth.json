@@ -1,0 +1,45 @@
+{
+  "SYNO.OAUTH.Client": {
+    "maxVersion": 1,
+    "methods": {
+      "1": [
+        "list",
+        "get",
+        "add",
+        "enable",
+        "disable",
+        "del"
+      ]
+    }
+  },
+  "SYNO.OAUTH.Common": {
+    "maxVersion": 1,
+    "methods": {
+      "1": [
+        "get",
+        "set"
+      ]
+    }
+  },
+  "SYNO.OAUTH.Log": {
+    "maxVersion": 1,
+    "methods": {
+      "1": [
+        "list",
+        "del",
+        "add",
+        "export"
+      ]
+    }
+  },
+  "SYNO.OAUTH.Token": {
+    "maxVersion": 1,
+    "methods": {
+      "1": [
+        "list",
+        "revoke",
+        "verify"
+      ]
+    }
+  }
+}

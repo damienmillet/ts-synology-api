@@ -21,8 +21,8 @@ export async function login(
     format?: string;
     session?: string;
     otp_code?: string;
-    enable_syno_token?: boolean;
-    enable_device_token?: boolean;
+    enable_syno_token?: string;
+    enable_device_token?: string;
     device_name?: string;
     device_id?: string;
   },
@@ -38,6 +38,13 @@ export async function login(
     passwd: password,
     format: options?.format || "sid",
     ...(options?.session && { session: options?.session }),
+    ...(options?.otp_code && { otp_code: options?.otp_code }),
+    ...(options?.enable_syno_token &&
+      { enable_syno_token: options?.enable_syno_token }),
+    ...(options?.enable_device_token &&
+      { enable_device_token: options?.enable_device_token }),
+    ...(options?.device_name && { device_name: options?.device_name }),
+    ...(options?.device_id && { device_id: options?.device_id }),
   });
 }
 
@@ -50,6 +57,21 @@ export async function logout(
     method: "logout",
     version: "1",
     ...(session && { session }),
-    ...(sid && { sid }),
+    ...(sid && { _sid: sid }),
+  });
+}
+
+export async function token(
+  sid?: string,
+  is_portal_port?: string,
+  synotoken?: string,
+): Promise<ApiResponse<login>> {
+  return fetchAPI(service, "token", apiPath, {
+    api: service,
+    method: "token",
+    version: "6",
+    ...(sid && { _sid: sid }),
+    ...(is_portal_port && { is_portal_port }),
+    ...(synotoken && { synotoken }),
   });
 }
